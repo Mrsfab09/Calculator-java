@@ -36,35 +36,42 @@ public class Main {
         System.out.print("Wybierz: ");
         char chooseOption = scanner.next().charAt(0);
 
+        System.out.println();
+
+
         switch(chooseOption){
             case '+':
                 for (double liczba : liczby) {
                     wynik += liczba;
                 }
-                System.out.println("Wynik= "+wynik);
+                System.out.println("Wynik = "+Math.round(wynik));
                 break;
             case '-':
                 for (double liczba : liczby) {
                     wynik -= liczba;
                 }
-                System.out.println("Wynik= "+wynik);
+                System.out.println("Wynik = "+Math.round(wynik));
                 break;
             case '*':
                 for (double liczba : liczby) {
-                    wynik *= liczba;
+                    wynik=1;
+                    wynik *= liczba; //! Naprawic blad
                 }
-                System.out.println("Wynik= "+wynik);
+                System.out.println("Wynik = "+Math.round(wynik));
                 break;
             case '/':
                 for (int i = 1; i < liczby.size(); i++) {
                     if (liczby.get(i) != 0) {
-                        wynik /= liczby.get(i);
+                        //wynik /= liczby.get(i); //! Blad podczas dzielenia wychodzi zawsze 0
                     } else {
                         System.out.println("\n[Błąd !] Nie można dzielić przez zero.");
                         return;
                     }
                 }
-                System.out.println("Wynik= "+wynik);
+                System.out.println("Wynik = "+Math.round(wynik));
+                break;
+            case 'Q':
+                return;
             default:
                 System.out.println("\n[Blad !] Nieprawidlowy znak, podaj poprawny znak");
                 break;
@@ -72,3 +79,4 @@ public class Main {
     }
 }
 //TODO Adding colors in terminal
+//TODO Adding new function maths
